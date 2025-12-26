@@ -1,7 +1,10 @@
-import { Text, View } from "react-native";
+import { Text, View } from 'react-native';
 
 export default function Explore() {
-    return ( <View> <Text>Explore</Text> </View>)
+  return (
+    <View>
+      {' '}
+      <Text>Explore</Text>{' '}
+    </View>
+  );
 }
-
-
