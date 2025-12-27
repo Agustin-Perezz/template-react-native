@@ -1,7 +1,7 @@
 import { Stack } from 'expo-router';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-import '../firebase/config';
-import '../global.css';
+import '../../global.css';
+import '../../src/firebase/config';
 
 export default function RootLayout() {
   return (
