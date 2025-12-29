@@ -1,16 +1,18 @@
 import { useEffect, useState } from 'react';
-import { FlatList, Text, View } from 'react-native';
+import { FlatList, Text } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 type Item = {
-  id: string;
-  name: string;
+  id: number;
+  title: string;
   description: string;
   image: string;
   price: number;
-  rating: number;
-  reviews: number;
+  rating: {
+    rate: number;
+    count: number;
+  };
   category: string;
-  subCategory: string;
 };
 
 type State = {
@@ -55,14 +57,19 @@ export default function Explore() {
   }
 
   return (
-    <View>
-      <Text>Items: {data.items.length}</Text>
+    <SafeAreaView edges={['top', 'bottom']} className="flex-1">
+      <Text className="text-xl font-bold text-center">
+        Items: {data.items.length}
+      </Text>
       <FlatList
         data={data.items}
-        renderItem={({ item }) => <Text>{item.name}</Text>}
+        renderItem={({ item }) => (
+          <Text className="text-md py-2">{item.title}</Text>
+        )}
         initialNumToRender={10}
-        keyExtractor={item => item.id}
+        keyExtractor={item => item.id.toString()}
+        className="m-2"
       />
-    </View>
+    </SafeAreaView>
   );
 }
